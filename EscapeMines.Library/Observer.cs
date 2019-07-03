@@ -23,10 +23,8 @@ namespace EscapeMines.Library
         public State Observe(Point position)
         {
             if (IsExit(position)) return State.IsExit;
-            else if (IsDead(position)) return State.IsDead;
-            else if (IsOutOfBounds(position)) return State.IsOutOfBounds;
-            else if (IsDanger(position)) return State.IsDanger;
-            else return State.Normal;
+            else if (IsDead(position)) return State.IsMineHit;
+            else return State.IsDanger;
         }
 
         public bool IsDanger(Point position)

@@ -35,7 +35,7 @@ namespace EscapeMines.Test
         [TestMethod]
         public void TestPrinter()
         {
-            Assert.AreNotEqual(Printer.Success, Printer.Dead);
+            Assert.AreNotEqual(Printer.Success, Printer.HitMine);
         }
     }
 }

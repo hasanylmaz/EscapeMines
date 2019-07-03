@@ -22,8 +22,15 @@ namespace EscapeMines.Library.Models
             switch (Direction)
             {
                 case Directions.N:
-                    Printer.Print(_turtle.Position, new Point { X = _turtle.Position.X - 1, Y = _turtle.Position.Y });
-                    _turtle.Position = new Point { X = _turtle.Position.X - 1, Y = _turtle.Position.Y };
+                    if (_turtle.Position.X != 0)
+                    {
+                        Printer.Print(_turtle.Position, new Point { X = _turtle.Position.X - 1, Y = _turtle.Position.Y });
+                        _turtle.Position = new Point { X = _turtle.Position.X - 1, Y = _turtle.Position.Y };
+                    }
+                    else
+                    {
+                        Printer.Print(Printer.Out);
+                    }
                     break;
                 case Directions.S:
                     Printer.Print(_turtle.Position, new Point { X = _turtle.Position.X + 1, Y = _turtle.Position.Y });
@@ -40,7 +47,7 @@ namespace EscapeMines.Library.Models
             }
         }
 
-        public void Rotate()
+        public void RotateRight()
         {
             switch (Direction)
             {
@@ -58,6 +65,31 @@ namespace EscapeMines.Library.Models
                     break;
                 case Directions.W:
                     Direction = Directions.N;
+                    Printer.Print(Direction);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void RotateLeft()
+        {
+            switch (Direction)
+            {
+                case Directions.N:
+                    Direction = Directions.W;
+                    Printer.Print(Direction);
+                    break;
+                case Directions.S:
+                    Direction = Directions.E;
+                    Printer.Print(Direction);
+                    break;
+                case Directions.E:
+                    Direction = Directions.N;
+                    Printer.Print(Direction);
+                    break;
+                case Directions.W:
+                    Direction = Directions.S;
                     Printer.Print(Direction);
                     break;
                 default:

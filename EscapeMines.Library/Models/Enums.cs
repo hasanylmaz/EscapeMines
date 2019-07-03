@@ -16,9 +16,7 @@ namespace EscapeMines.Library.Models
 
     public enum State
     {
-        IsDead,
-        Normal,
-        IsOutOfBounds,
+        IsMineHit,
         IsExit,
         IsDanger
     }

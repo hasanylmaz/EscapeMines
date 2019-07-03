@@ -35,27 +35,25 @@ namespace EscapeMines.Library.Models
             Printer.Print(turtle);
             for (int i = 0; i < moves.Length; i++)
             {
-                if (moves[i] == "R") turtle.Rotate();
+                if (moves[i] == "R") turtle.RotateRight();
+                else if (moves[i] == "L") turtle.RotateLeft();
                 else if (moves[i] == "M") turtle.Move();
                 Thread.Sleep(1000);
                 var situation = _observer.Observe(turtle.Position);
-                if (situation == State.IsDead)
+                if (situation == State.IsMineHit)
                 {
-                    Printer.Print(Printer.Dead);
+                    Printer.Print(Printer.HitMine);
                     break;
                 }
-                else if (situation == State.IsExit)
+                if (situation == State.IsExit)
                 {
                     Printer.Print(Printer.Success);
                     break;
                 }
-                else if (situation == State.IsOutOfBounds)
-                {
-                    Printer.Print(Printer.Out);
-                }
-                else if (situation == State.IsDanger)
+                if (situation == State.IsDanger)
                 {
                     Printer.Print(Printer.IsNear);
+                    continue;
                 }
             }
         }

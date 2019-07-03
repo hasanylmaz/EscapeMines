@@ -13,9 +13,9 @@ namespace EscapeMines.Library
         public static string startString = "Starting Position of Turtle: ({x},{y}), Direction: {dir}";
         public static string movedFromTo = "Turtle moved from position {from} to {to}";
         public static string rotate = "Turned to {to}";
-        public const string Dead = "Our poor turtle is dead";
+        public const string HitMine = "Our little turtle is hit the mine!";
         public const string Out = "Turtle went out of bounds";
-        public const string IsNear = "Danger is near!";
+        public const string IsNear = "Turtle is still in danger!";
         public const string Success = "Success";
 
         public static void Print(Point pointFrom, Point pointTo)
@@ -23,8 +23,6 @@ namespace EscapeMines.Library
             var combinePointFrom = $"({pointFrom.X},{pointFrom.Y})";
             var combinePointTo = $"({pointTo.X},{pointTo.Y})";
             var printText = movedFromTo.Replace("{from}", combinePointFrom).Replace("{to}", combinePointTo);
-            //var printText = text.Replace("{from}", combinePointFrom).Replace("{to}", combinePointTo);
-            //if (action != null) printText = $"{printText} - {action}";
             Console.WriteLine(printText);
             Console.WriteLine(new string('-', 50));
         }

@@ -54,7 +54,7 @@ namespace EscapeMines.Library
 
             //fifth line of setting
             settings.Moves = settingString[4].Split(' ');
-
+            
             return settings;
         }
     }
